@@ -5,34 +5,34 @@ with open('day6input.txt', 'r') as data:
         data3 = line.replace("\n","")
         Instructions.append(data3)
 
-#print(Instructions)
+######part 1#########
 
-##VisitedNodes = {}
-##while len(Instructions) > 0:
-##    for item in Instructions:
-##        #print("Evaluating : " + str(item))
-##        content = item.split(")")
-##        if len(VisitedNodes) == 0:
-##            if content[0] == "COM":
-##                VisitedNodes = {str(content[0]) : {"orbits" : 0}, str(content[1]) : {"orbits" : 1}}
-##            else:
-##                pass
-##        else:
-##            Nodekeys = VisitedNodes.keys()
-##            if str(content[0]) not in Nodekeys:
-##                pass
-##            else:
-##                checker = VisitedNodes[str(content[0])]
-##                data = checker.get("orbits")
-##                VisitedNodes[str(content[1])] = {"orbits" : data + 1}                
-##                Instructions.remove(item)
-##
-##GrandTotal = 0
-##for Location in VisitedNodes:
-##    x = VisitedNodes[Location]["orbits"]
-##    GrandTotal = GrandTotal + x
-##print(VisitedNodes)
-##print("The total number of orbits is : " + str(GrandTotal))
+VisitedNodes = {}
+while len(Instructions) > 0:
+    for item in Instructions:
+        #print("Evaluating : " + str(item))
+        content = item.split(")")
+        if len(VisitedNodes) == 0:
+            if content[0] == "COM":
+                VisitedNodes = {str(content[0]) : {"orbits" : 0}, str(content[1]) : {"orbits" : 1}}
+            else:
+                pass
+        else:
+            Nodekeys = VisitedNodes.keys()
+            if str(content[0]) not in Nodekeys:
+                pass
+            else:
+                checker = VisitedNodes[str(content[0])]
+                data = checker.get("orbits")
+                VisitedNodes[str(content[1])] = {"orbits" : data + 1}                
+                Instructions.remove(item)
+
+GrandTotal = 0
+for Location in VisitedNodes:
+    x = VisitedNodes[Location]["orbits"]
+    GrandTotal = GrandTotal + x
+print(VisitedNodes)
+print("The total number of orbits is : " + str(GrandTotal))
 
 
 #####################part 2############################
